@@ -1,0 +1,16 @@
+version: "3.7"
+
+networks:
+    api_telemetry.services.network:
+        driver: bridge
+
+services:
+    api_telemetry:
+        container_name: API_Telemetry
+        build:
+          context: ../
+          dockerfile: ./build/API_Telemetry.dockerfile 
+        ports:
+            - "8001:80"
+        networks:
+            - api_telemetry.services.network
